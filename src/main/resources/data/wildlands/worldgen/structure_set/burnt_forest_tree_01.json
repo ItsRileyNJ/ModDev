@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "wildlands:burnt_forest_tree_01",
+      "weight": 1
+    },
+    {
+      "structure": "wildlands:burnt_forest_bush_01",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "wildlands:configured_spread",
+    "biome_config": "burnt_forest",
+    "salt": 20649
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "structures": [
+    {
+      "structure": "wildlands:redwood_forest_tree_01",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "wildlands:configured_spread",
+    "biome_config": "redwood_forest",
+    "salt": 20850
+  }
+}

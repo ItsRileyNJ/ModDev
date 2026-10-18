@@ -1,0 +1,29 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.2,
+  "downfall": 0.7,
+  "effects": {
+    "fog_color": 329997,
+    "sky_color": 7907327,
+    "water_color": 199447,
+    "water_fog_color": 66311
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "wildlands:biome_details"
+    ],
+    []
+  ]
+}

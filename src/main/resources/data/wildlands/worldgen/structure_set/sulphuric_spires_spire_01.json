@@ -1,0 +1,13 @@
+{
+  "structures": [
+    {
+      "structure": "wildlands:sulphuric_spires_spire_01",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "wildlands:configured_spread",
+    "biome_config": "sulphuric_spires",
+    "salt": 21088
+  }
+}

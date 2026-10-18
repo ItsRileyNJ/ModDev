@@ -1,0 +1,279 @@
+[rootlands]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+	# Default: 2
+	# Range: 1 ~ 64
+	structureSpacingChunks = 2
+	# Default: 0.65
+	# Range: 0.0 ~ 1.0
+	structureProbability = 0.65
+	# Default: 5
+	# Range: 0 ~ 64
+	featureAttempts = 5
+	# Default: 5
+	# Range: 1 ~ 12
+	patchRadius = 5
+
+[white_mountains]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+	# Default: 5
+	# Range: 0 ~ 64
+	featureAttempts = 5
+
+[crater]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+
+[volcanic_badlands]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+	# Default: 5
+	# Range: 0 ~ 64
+	featureAttempts = 5
+
+[burnt_forest]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+	# Default: 2
+	# Range: 1 ~ 64
+	structureSpacingChunks = 2
+	# Default: 0.65
+	# Range: 0.0 ~ 1.0
+	structureProbability = 0.65
+	# Default: 5
+	# Range: 0 ~ 64
+	featureAttempts = 5
+
+[redwood_forest]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+	# Default: 4
+	# Range: 1 ~ 64
+	structureSpacingChunks = 4
+	# Default: 0.65
+	# Range: 0.0 ~ 1.0
+	structureProbability = 0.65
+
+[ignimbrite_flats]
+	enabled = true
+
+[verdent]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+
+[rocky_plains]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+	# Default: 5
+	# Range: 0 ~ 64
+	featureAttempts = 5
+	# Default: 5
+	# Range: 1 ~ 12
+	patchRadius = 5
+
+[dead_reef]
+	enabled = true
+	# Default: 5
+	# Range: 0 ~ 64
+	featureAttempts = 5
+
+[sulphuric_spires]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+	# Default: 2
+	# Range: 1 ~ 64
+	structureSpacingChunks = 2
+	# Default: 0.65
+	# Range: 0.0 ~ 1.0
+	structureProbability = 0.65
+
+[depths]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+	# Default: 1
+	# Range: 0 ~ 64
+	featureAttempts = 1
+	# Default: 1
+	# Range: 0 ~ 10
+	creatureSpawnWeight = 1
+	# Default: 100
+	# Range: 1 ~ 10000
+	creatureSpawnOneIn = 100
+	# Default: 400
+	# Range: 20 ~ 10000
+	bacteriaOneInChunks = 400
+	# Default: 72000
+	# Range: 6000 ~ 1728000
+	minimumEncounterIntervalTicks = 72000
+
+[ocean_trench]
+	enabled = true
+	# Default: 1
+	# Range: 1 ~ 100
+	regionWeight = 1
+
+[terrain]
+	# Default: 100
+	# Range: 24 ~ 200
+	craterRadius = 100
+	# Default: 38
+	# Range: 8 ~ 80
+	craterDepth = 38
+	# Default: 10
+	# Range: 1 ~ 30
+	ironDepositRadius = 10
+	# Default: 0.6
+	# Range: 0.0 ~ 1.0
+	ironRichness = 0.6
+	# Default: 90
+	# Range: 20 ~ 180
+	mountainHeight = 90
+	# Default: 0.65
+	# Range: 0.0 ~ 1.0
+	calciteShare = 0.65
+	# Default: 15
+	# Range: 0 ~ 40
+	volcanicRoughness = 15
+
+[volcanicPools]
+	# Default: 3
+	# Range: 1 ~ 8
+	radius = 3
+	# Default: 0.15
+	# Range: 0.0 ~ 1.0
+	chancePerAttempt = 0.15
+	# Default: 0.12
+	# Range: 0.0 ~ 1.0
+	ashIntensity = 0.12
+
+[drops]
+	# Default: 1
+	# Range: 0 ~ 16
+	charcoalMin = 1
+	# Default: 3
+	# Range: 0 ~ 16
+	charcoalMax = 3
+	# Default: 2
+	# Range: 0 ~ 16
+	gunpowderMax = 2
+	# Default: 0.7
+	# Range: 0.0 ~ 1.0
+	gunpowderChance = 0.7
+
+[rootFlower]
+	# Default: 1.0
+	# Range: 0.0 ~ 20.0
+	damage = 1.0
+	slows = true
+	affectsPlayers = true
+	affectsMobs = true
+	# Default: 0.65
+	# Range: 0.0 ~ 1.0
+	chancePerDirtPatch = 0.65
+
+[rootWorm]
+	# Default: 12
+	# Range: 0 ~ 100
+	spawnWeight = 12
+	# Default: 2.0
+	# Range: 1.0 ~ 10.0
+	fireMultiplier = 2.0
+	# Default: 6
+	# Range: 1 ~ 16
+	fireDetectionRadius = 6
+	fleeFire = true
+	# Default: 1.6
+	# Range: 0.1 ~ 3.0
+	fleeSpeed = 1.6
+
+[bananaSlug]
+	# Default: 10
+	# Range: 0 ~ 100
+	spawnWeight = 10
+	# Default: 1200
+	# Range: 20 ~ 72000
+	waxCooldownTicks = 1200
+	eligibleCopper = []
+	#Opt-in installed entity IDs only. No vanilla copper golem exists in 1.21.1.
+	healableGolemTypes = []
+	# Default: 2.0
+	# Range: 0.0 ~ 100.0
+	golemHealAmount = 2.0
+	# Default: 200
+	# Range: 0 ~ 72000
+	dryGraceTicks = 200
+	# Default: 40
+	# Range: 1 ~ 1200
+	dryDamageInterval = 40
+	# Default: 1.0
+	# Range: 0.1 ~ 20.0
+	dryDamage = 1.0
+	rainProtects = true
+	waterProtects = true
+	dryBiomes = ["minecraft:desert", "minecraft:badlands", "minecraft:wooded_badlands", "minecraft:eroded_badlands", "wildlands:volcanic_badlands"]
+
+[flytrap]
+	# Default: 4
+	# Range: 0 ~ 100
+	spawnWeight = 4
+	# Default: 1200
+	# Range: 20 ~ 72000
+	digestionTicks = 1200
+	# Default: 2400
+	# Range: 20 ~ 72000
+	collectionCooldownTicks = 2400
+	# Default: 6000
+	# Range: 20 ~ 72000
+	tamingWindowTicks = 6000
+	targetPets = false
+	# Default: 0.9
+	# Range: 0.1 ~ 2.0
+	maxPreyWidth = 0.9
+	blacklistedEntities = ["minecraft:villager", "minecraft:allay"]
+	blacklistedCategories = ["misc"]
+
+[slimeTrap]
+	# Default: 1200
+	# Range: 20 ~ 72000
+	lifetimeTicks = 1200
+	# Default: 100
+	# Range: 1 ~ 1200
+	immobilizeTicks = 100
+	affectedEntityTypes = []
+
+[oceanTrench]
+	# Default: 100
+	# Range: 0 ~ 200
+	drownedWeight = 100
+	# Default: 12
+	# Range: 0 ~ 64
+	oreAttempts = 12
+
+[rockyPlains]
+	# Default: 0.3333333333333333
+	# Range: 0.0 ~ 1.0
+	fossilChancePerOutcrop = 0.3333333333333333
+	# Default: 5
+	# Range: 2 ~ 12
+	fossilMaxLength = 5

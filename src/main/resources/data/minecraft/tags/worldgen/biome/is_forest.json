@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "wildlands:rootlands",
+    "wildlands:burnt_forest",
+    "wildlands:redwood_forest",
+    "wildlands:verdent"
+  ]
+}

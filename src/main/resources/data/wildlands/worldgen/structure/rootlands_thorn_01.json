@@ -1,0 +1,11 @@
+{
+  "type": "wildlands:custom_template",
+  "biomes": [
+    "wildlands:rootlands"
+  ],
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none",
+  "template": "wildlands:rootlands/thorn_01",
+  "biome_config": "rootlands"
+}

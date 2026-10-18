@@ -1,0 +1,1 @@
+{"required":true,"minVersion":"0.8","package":"dev.riley.wildlands.mixin","compatibilityLevel":"JAVA_21","mixins":["VolcanicLavaMixin"],"injectors":{"defaultRequire":1}}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "wildlands:block/ignimbrite",
+    "top": "wildlands:block/ignimbrite",
+    "side": "wildlands:block/ignimbrite"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "wildlands:rocky_plains",
+    "wildlands:burnt_forest",
+    "wildlands:redwood_forest",
+    "wildlands:volcanic_badlands",
+    "wildlands:ignimbrite_flats",
+    "wildlands:dead_reef",
+    "wildlands:crater",
+    "wildlands:rootlands",
+    "wildlands:white_mountains",
+    "wildlands:ocean_trench",
+    "wildlands:depths",
+    "wildlands:sulphuric_spires",
+    "wildlands:verdent"
+  ]
+}

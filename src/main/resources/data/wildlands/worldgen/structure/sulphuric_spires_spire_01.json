@@ -1,0 +1,11 @@
+{
+  "type": "wildlands:custom_template",
+  "biomes": [
+    "wildlands:sulphuric_spires"
+  ],
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none",
+  "template": "wildlands:sulphuric_spires/spire_01",
+  "biome_config": "sulphuric_spires"
+}

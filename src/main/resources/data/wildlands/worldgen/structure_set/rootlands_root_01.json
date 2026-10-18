@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "wildlands:rootlands_root_01",
+      "weight": 1
+    },
+    {
+      "structure": "wildlands:rootlands_thorn_01",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "wildlands:configured_spread",
+    "biome_config": "rootlands",
+    "salt": 20322
+  }
+}

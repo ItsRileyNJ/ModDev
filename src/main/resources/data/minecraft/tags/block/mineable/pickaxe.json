@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "wildlands:ignimbrite",
+    "wildlands:polished_ignimbrite",
+    "wildlands:ignimbrite_slab",
+    "wildlands:ignimbrite_stairs",
+    "wildlands:ignimbrite_wall",
+    "wildlands:limestone",
+    "wildlands:sulphuric_spire",
+    "wildlands:plant_fossil",
+    "wildlands:animal_fossil",
+    "wildlands:fossil_trophy"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "wildlands:block/ignimbrite_slab"
+    },
+    "type=top": {
+      "model": "wildlands:block/ignimbrite_slab_top"
+    },
+    "type=double": {
+      "model": "wildlands:block/ignimbrite"
+    }
+  }
+}

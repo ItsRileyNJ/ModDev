@@ -1,0 +1,51 @@
+{
+  "dimensions": {
+    "minecraft:overworld": {
+      "type": "minecraft:overworld",
+      "generator": {
+        "type": "wildlands:terrain",
+        "biome_source": {
+          "type": "wildlands:regions",
+          "biomes": [
+            "wildlands:rootlands",
+            "wildlands:white_mountains",
+            "wildlands:crater",
+            "wildlands:volcanic_badlands",
+            "wildlands:burnt_forest",
+            "wildlands:redwood_forest",
+            "wildlands:ignimbrite_flats",
+            "wildlands:verdent",
+            "wildlands:rocky_plains",
+            "wildlands:dead_reef",
+            "wildlands:sulphuric_spires",
+            "wildlands:depths",
+            "wildlands:ocean_trench",
+            "minecraft:plains"
+          ]
+        },
+        "settings": "minecraft:overworld"
+      }
+    },
+    "minecraft:the_nether": {
+      "type": "minecraft:the_nether",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "minecraft:nether",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "preset": "minecraft:nether"
+        }
+      }
+    },
+    "minecraft:the_end": {
+      "type": "minecraft:the_end",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "minecraft:end",
+        "biome_source": {
+          "type": "minecraft:the_end"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "wildlands:custom_template",
+  "biomes": [
+    "wildlands:burnt_forest"
+  ],
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "none",
+  "template": "wildlands:burnt_forest/tree_01",
+  "biome_config": "burnt_forest"
+}

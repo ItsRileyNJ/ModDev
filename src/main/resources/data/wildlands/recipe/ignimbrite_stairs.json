@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "II ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "wildlands:ignimbrite"
+    }
+  },
+  "result": {
+    "id": "wildlands:ignimbrite_stairs",
+    "count": 4
+  }
+}

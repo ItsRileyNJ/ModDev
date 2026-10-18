@@ -1,0 +1,62 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "wildlands:block/seafloor_bacteria"
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "wildlands:block/seafloor_bacteria",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "wildlands:block/seafloor_bacteria",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "wildlands:block/seafloor_bacteria",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": "true"
+      },
+      "apply": {
+        "model": "wildlands:block/seafloor_bacteria",
+        "uvlock": true,
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "down": "true"
+      },
+      "apply": {
+        "model": "wildlands:block/seafloor_bacteria",
+        "uvlock": true,
+        "x": 90
+      }
+    }
+  ]
+}

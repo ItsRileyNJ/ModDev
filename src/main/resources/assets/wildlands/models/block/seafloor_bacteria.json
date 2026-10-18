@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/glow_lichen",
+  "textures": {
+    "glow_lichen": "wildlands:block/seafloor_bacteria"
+  }
+}
