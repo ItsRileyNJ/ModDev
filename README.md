@@ -12,9 +12,15 @@ The [administrator guide](docs/ADMIN.md) explains world creation, configuration,
 recipes, commands, ownership, and fixed design rules. The complete configuration
 with defaults is [DEFAULT_CONFIG.toml](docs/DEFAULT_CONFIG.toml).
 
-Create a **new Wildlands world** to use the custom terrain/biome generator.
-Existing vanilla worlds keep their existing Overworld generator. The separate
-Wildlands realm is available through `/wildlands realm` to operators when loaded.
+Use the normal **Default** world type. The thirteen Wildlands biomes generate
+alongside vanilla biomes in the Overworld; no separate realm or special world
+type is needed. In an existing Default world, explore **previously ungenerated
+chunks**. Already generated terrain is unchanged. For a dedicated server, keep
+`level-type=minecraft:normal`. Superflat and single-biome worlds keep their own
+biome sources. With cheats enabled, try `/locate biome wildlands:redwood_forest`.
+
+**Upgrading:** replace the old JAR with `wildlands-1.0.1.jar` on both client and
+server. Keep only one Wildlands JAR in each `mods/` folder and restart Minecraft.
 
 ```bash
 # In this prepared cloud environment:
@@ -25,7 +31,7 @@ cd /workspace/ModDev
 
 On your desktop, install JDK 21, open this folder in IntelliJ IDEA or Eclipse as
 a Gradle project, and use `gradlew.bat build` (Windows) or `./gradlew build`.
-The result is `build/libs/wildlands-1.0.0.jar`. Install it in both client and server
+The result is `build/libs/wildlands-1.0.1.jar`. Install it in both client and server
 `mods/` folders. Optional development commands: `runClient`, `runServer`, `runData`.
 The dedicated server may ask you to read/accept Minecraft's EULA yourself.
 

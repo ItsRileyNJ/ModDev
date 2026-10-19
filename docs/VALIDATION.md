@@ -1,12 +1,12 @@
 # Validation and remaining limits
 
-Verified in the cloud workspace on October 18, 2026, using Java 21 and
+Verified in the cloud workspace on October 19, 2026, using Java 21 and
 NeoForge 21.1.262 for Minecraft 1.21.1.
 
 ## Results
 
 - `./gradlew --no-daemon --max-workers=4 build runGameTestServer`: **passed**.
-- **22 native Minecraft GameTests executed, 22 passed, zero failed or skipped.**
+- **25 native Minecraft GameTests executed, 25 passed, zero failed or skipped.**
 - The Gradle unit-test task reports NO-SOURCE; the native GameTests, not that
   empty unit-test task, supply the runtime verification.
 - `tools/check_resources.py` passed: 78 model/blockstate/PNG resources, every
@@ -16,9 +16,9 @@ NeoForge 21.1.262 for Minecraft 1.21.1.
   version 65 (Java 21), thirteen biome definitions, and required Mixin config.
 - No other gameplay API mod is required.
 
-Artifact: `build/libs/wildlands-1.0.0.jar`.
+Artifact: `build/libs/wildlands-1.0.1.jar`.
 
-SHA-256: `97f46326d1ba87835fd449db924e5cca0dd73e0a2e5f032e85b069131c6110d0`
+SHA-256: `437b1829e90fe6f846966ffc073c17224ee2b0fe87464f001bddc127aa2389e5`
 
 ## Runtime coverage
 
@@ -47,17 +47,26 @@ The tests exercise:
     Resistance V and absorption; healing suppression between the two successful hits.
 18. A persistent natural-encounter cooldown that cannot be reset by entity disappearance.
 19. Structure export to a real NBT file and reload through the native structure manager.
+20. All thirteen custom biomes sampled through the actual `minecraft:normal`
+    preset's vanilla multi-noise source, with the majority of region cells
+    preserving vanilla climate lookup. Satellite parent adjacency and native
+    biome-location lookup are checked on that source.
+21. Normal noise-generator biome filling and terrain filling into a real ProtoChunk,
+    followed by the actual injected carving hook: deep water, floor materials,
+    removal of former terrain, stored chunk biomes, and matching base heights.
+    Vanilla-region base columns match the unmodified source at every height.
+22. Vanilla generator codec encode/decode retains automatic Overworld integration;
+    the Nether and End sources are unchanged, and no realm dimension is declared.
 
-Some tests cover multiple related behaviors; the suite contains 22 test methods.
+Some tests cover multiple related behaviors; the suite contains 25 test methods.
 
 ## What is still needed or unverified
 
 - **Your six custom structure designs are not supplied yet.** The shipped NBTs
   are explicit empty markers and are skipped. Rootlands, Burnt Forest, Redwood
   Forest and Sulphuric Spires do not receive invented replacement roots/trees/spikes.
-  This also means a fresh survival world should wait for your wood-bearing tree
-  designs, or give yourself vanilla wood in a creative test world, rather than assuming tree
-  placeholders provide wood. Use [ASSETS.md](ASSETS.md) to export/install designs.
+  Vanilla biomes elsewhere in the normal Overworld still provide ordinary trees
+  and wood. Use [ASSETS.md](ASSETS.md) to export/install your custom designs.
 - Creature/block/item art is intentionally placeholder art. Replace the listed
   resources for your intended appearance. The rendering code supports native
   cuboid JSON models and flytrap open/digesting poses. Arbitrary skeletal or
@@ -65,11 +74,13 @@ Some tests cover multiple related behaviors; the suite contains 22 test methods.
 - No graphical Minecraft client or human multiplayer session was run. Final
   appearance, animation quality, fog appearance with shaders, encounter pacing,
   and large user-authored structure placement still require in-game playtesting.
-- Worldgen tests decode the registered preset and exercise the real terrain fill
-  and feature implementations. They are not a full survival playthrough of a
-  generated Wildlands world. The GameTest server uses its own flat test world.
-- World generation requires the Wildlands preset or the declared realm; it does
-  not automatically rewrite an existing vanilla Overworld's biome source.
+- Worldgen tests decode the normal and legacy presets and exercise native noise,
+  biome, terrain and feature implementations. Isolated terrain tests supply an
+  empty structure-start list; placement of large user-authored structures still
+  requires playtesting. The GameTest server itself uses a flat test world.
+- Default Overworld worlds now receive custom biomes automatically in new chunks.
+  Existing chunks are unchanged. Other mods that replace the Overworld biome
+  source/generator may bypass this integration and have not been tested.
 - Satellite biome guarantees operate at Minecraft's four-block quart sampling
   resolution; narrow margins and fuzzy block-level borders are documented in
   [IMPLEMENTATION.md](IMPLEMENTATION.md).

@@ -99,7 +99,7 @@ public final class WildChunkGenerator extends NoiseBasedChunkGenerator {
     return (int) Math.round(h);
   }
 
-  private BlockState block(int x, int y, int z, int h, String biome) {
+  public BlockState terrainBlock(int x, int y, int z, int h, String biome) {
     if (y == -64) return Blocks.BEDROCK.defaultBlockState();
     if (y > h) return (y <= 62 ? Blocks.WATER : Blocks.AIR).defaultBlockState();
     long v = BiomeLayout.hash(source().seed() + y, x, z);
@@ -149,7 +149,7 @@ public final class WildChunkGenerator extends NoiseBasedChunkGenerator {
         int wx = origin.getX() + x, wz = origin.getZ() + z, h = height(wx, wz);
         String biome = source().nameAt(wx, wz);
         for (int y = -64; y <= Math.max(h, 62); y++)
-          chunk.setBlockState(p.set(wx, y, wz), block(wx, y, wz, h, biome), false);
+          chunk.setBlockState(p.set(wx, y, wz), terrainBlock(wx, y, wz, h, biome), false);
       }
     Heightmap.primeHeightmaps(
         chunk, java.util.Set.of(Heightmap.Types.OCEAN_FLOOR_WG, Heightmap.Types.WORLD_SURFACE_WG));
@@ -184,7 +184,7 @@ public final class WildChunkGenerator extends NoiseBasedChunkGenerator {
     var a = new BlockState[384];
     int h = height(x, z);
     String b = source().nameAt(x, z);
-    for (int i = 0; i < a.length; i++) a[i] = block(x, i - 64, z, h, b);
+    for (int i = 0; i < a.length; i++) a[i] = terrainBlock(x, i - 64, z, h, b);
     return new NoiseColumn(-64, a);
   }
 }

@@ -2,11 +2,7 @@ package dev.riley.wildlands.gameplay;
 
 import dev.riley.wildlands.*;
 import net.minecraft.commands.Commands;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -30,9 +26,10 @@ public final class AdminCommands {
                                               "Wildlands: Minecraft 1.21.1 / NeoForge 21.1.262. 13"
                                                   + " biomes. Fixed: Depths fog 5 blocks, pressure"
                                                   + " at Y <= -36; stalker hit 18 health points."
-                                                  + " Config: config/wildlands-common.toml."
-                                                  + " Worldgen changes affect new chunks; use a new"
-                                                  + " world for topology changes."),
+                                                  + " Normal Overworld generation. Config:"
+                                                  + " config/wildlands-common.toml. Worldgen"
+                                                  + " changes affect new chunks; use a new world"
+                                                  + " for topology changes."),
                                       false);
                               return 1;
                             }))
@@ -72,55 +69,6 @@ public final class AdminCommands {
                                 if (ready) found++;
                               }
                               return found;
-                            }))
-                .then(
-                    Commands.literal("realm")
-                        .executes(
-                            c -> {
-                              var source = c.getSource();
-                              var player = source.getPlayerOrException();
-                              var realm =
-                                  source
-                                      .getServer()
-                                      .getLevel(
-                                          ResourceKey.create(
-                                              Registries.DIMENSION, Wildlands.id("realm")));
-                              if (realm == null) {
-                                source.sendFailure(
-                                    Component.literal(
-                                        "Wildlands realm is unavailable; check datapack loading"
-                                            + " errors."));
-                                return 0;
-                              }
-                              // Search a bounded nearby area for dry land before authorizing
-                              // travel.
-                              for (int r = 0; r <= 512; r += 16)
-                                for (int x = -r; x <= r; x += 16) {
-                                  int z = r;
-                                  var p =
-                                      realm.getHeightmapPos(
-                                          Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                                          new BlockPos(x, 0, z));
-                                  if (p.getY() > 63
-                                      && realm.getBlockState(p).isAir()
-                                      && realm.getBlockState(p.above()).isAir()) {
-                                    player.teleportTo(
-                                        realm,
-                                        p.getX() + .5,
-                                        p.getY(),
-                                        p.getZ() + .5,
-                                        java.util.Set.of(),
-                                        player.getYRot(),
-                                        player.getXRot());
-                                    return 1;
-                                  }
-                                }
-                              source.sendFailure(
-                                  Component.literal(
-                                      "No safe landing found nearby. Use /execute in"
-                                          + " wildlands:realm run tp with a chosen safe"
-                                          + " position."));
-                              return 0;
                             })));
   }
 }

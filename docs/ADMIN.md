@@ -1,18 +1,24 @@
 # Server administration and gameplay
 
-Install the built `wildlands-1.0.0.jar` in the `mods/` folder on the server AND
+Install the built `wildlands-1.0.1.jar` in the `mods/` folder on the server AND
 on every connecting Minecraft 1.21.1 client, using NeoForge 21.1.262. No other
 mod API is required. Back up existing worlds before installing worldgen mods.
 
-Create a new world and select the **Wildlands** world type in world creation.
-For a dedicated server, set `level-type=wildlands:wildlands` before creating a
-new world folder. This preset replaces Overworld terrain with thirteen Wildlands
-biomes, while retaining vanilla Nether/End. Installing the JAR alone does not
-replace the biome source in an existing vanilla Overworld. The mod also declares
-a separate `wildlands:realm` dimension, available in ordinary worlds when their
-datapacks/dimensions are loaded normally. The headless GameTest server creates
-only its own three vanilla test dimensions; its worldgen test exercises the
-registered Wildlands preset directly.
+Use Minecraft's normal **Default** world type. On a dedicated server, keep
+`level-type=minecraft:normal`. Wildlands biomes now generate alongside vanilla
+biomes in the normal Overworld, including new chunks of existing Default worlds.
+No separate dimension or special world type is required. Already generated
+chunks remain unchanged; travel beyond previously explored/generated terrain or
+create a fresh Default world to see the change immediately. Installing on the
+client alone cannot change a remote server's world generation.
+
+Replace the old JAR with version 1.0.1 on both client and server, remove the old
+copy, and restart. Superflat and single-biome sources are deliberately unaffected.
+Default and Large Biomes use the overlay; the added regions have a fixed 512-block
+size. The Nether and End retain their vanilla sources. The old custom generator
+and hidden preset codec remain available so 1.0.0 custom-world saves can still
+load; those old saves retain their original generator. New worlds no longer
+declare `wildlands:realm`, and `/wildlands realm` has been removed.
 
 ## Operator commands
 
@@ -23,10 +29,8 @@ or external permissions mod is needed.
 - `/wildlands status`: versions, configuration location, and fixed rules.
 - `/wildlands structures`: audits the six user-supplied NBT designs.
 - `/wildlands export <template> <from> <to> [replace]`: saves a large structure NBT from loaded blocks, with overwrite protection; see the asset guide.
-- `/wildlands realm`: operator-only travel into the realm; searches for a dry
-  landing and refuses travel if it cannot find a safe position nearby.
-- Vanilla `/locate biome wildlands:BIOME` locates a biome in a Wildlands-generated
-  world. Vanilla `/locate structure wildlands:redwood_forest_tree_01` can locate
+- Vanilla `/locate biome wildlands:BIOME` locates a biome in the normal Overworld.
+  Vanilla `/locate structure wildlands:redwood_forest_tree_01` can locate
   supplied designs after the templates are installed and spacing permits them.
 - Vanilla `/give` and `/summon wildlands:root_worm`, `banana_slug`, `flytrap`,
   `depth_stalker` support operator testing. Spawn eggs are in the Wildlands tab.
@@ -52,7 +56,7 @@ The significant defaults are:
 
 | Group | Defaults |
 | --- | --- |
-| Biomes | Enabled. Each independent biome weight 1. Satellites have no independent region weight. If all independent biomes are disabled, vanilla plains is the safe fallback. |
+| Biomes | Enabled. Each independent biome weight 1. Satellites have no independent region weight. If all independent biomes are disabled, the normal Overworld retains vanilla biome selection. |
 | Custom structures | Placement probability 0.65; spacing 2 chunks, redwoods 4. Empty templates are skipped. Increase spacing for large designs. |
 | Surface details | 5 attempts per chunk in applicable biomes; root/limestone patch radius 5. Bacteria has one attempt, gated by 1-in-400 chunks. |
 | White Mountains | Mountain height variation 90; calcite share 0.65; configurable azalea attempts. |

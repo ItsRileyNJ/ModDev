@@ -3,10 +3,11 @@
 Working identity: Wildlands (`wildlands`). Java 21, Minecraft 1.21.1,
 NeoForge 21.1.262. No external gameplay API or runtime dependencies.
 
-- World: thirteen data-driven biome registrations; a native custom biome source
-  and chunk generator in a selectable Wildlands world preset and optional realm.
-  Terrain and adjacency share one deterministic, world-seeded region sampler.
-  Independent-biome overlays cannot enforce strict adjacency; this generator can.
+- World: thirteen data-driven biome registrations, integrated into the vanilla
+  Overworld multi-noise preset during datapack decoding. A world-seeded gate adds
+  custom terrain/biome regions while most cells retain vanilla climate lookup
+  and terrain. The source's possible-biome set includes every custom biome for
+  native locate, feature, and structure generation. No separate realm is declared.
 - Content: native deferred registries, blocks, items, loot, recipes, banner
   patterns, tags, placeholder resource-pack models and structure templates.
 - Creatures: server AI/state machines; synchronized presentation; saved ownership,
@@ -24,13 +25,28 @@ ID provided by a compatible installed mod, never by inventing a vanilla entity.
 
 ## Implementation details and deliberate boundaries
 
-The thirteen biomes are sampled over world-seeded 512-block regions, with
-weighted independent biome selection and height-based terrain appropriate to each
-biome. This is a native custom generator/preset, not an external terrain API.
-Regions are geometric and do not reproduce vanilla climate blending; terrain
-heights blend at ordinary region edges. The Depths is a full-height biome with
-a deep water column, not a five-block vertical biome layer. Its seafloor is
-jagged at approximately -50 through -45 away from shore transitions.
+The Overworld integration uses native Mixins and no external worldgen API.
+`OverworldParametersMixin` resolves mod biome holders during datapack decoding,
+leaving vanilla bootstrap registries untouched. `OverworldBiomeSourceMixin` adds
+these holders to the vanilla source and selects custom biomes in approximately
+one quarter of world-seeded 512-block region cells. Other cells preserve vanilla
+climate selection, including cave biomes. Nether presets, direct biome lists,
+Superflat, and single-biome sources are unaffected. `OverworldSeedMixin` supplies
+the seed before structure-state initialization.
+
+Within custom cells, the existing weighted region sampler chooses enabled biomes.
+`OverworldTerrainMixin` applies the matching terrain after the native surface step,
+replacing carving in custom cells before features/structure pieces. It supplies
+matching base columns/heights for structure queries. A 32-block margin blends toward native terrain at cell
+edges. Default and Large Biomes noise settings are supported. These are geometric
+regions, not vanilla climate blending; transitions can still be visible. Custom
+cells use purpose-built solid terrain rather than vanilla cave/aquifer carving.
+The Depths occupies the full water column, with a jagged floor around -50 to -45
+away from the transition margins. Existing generated chunks are never rewritten.
+
+The old custom generator, source codec and hidden world preset remain for loading
+1.0.0 custom-world saves and focused terrain tests; they are not required for new
+worlds. The mod no longer declares a separate realm or offers realm travel.
 
 Dead Reef and Ignimbrite Flats are one-quart (four-block) inset borders inside
 their parent regions. Every satellite quart sample has a cardinal parent sample.
